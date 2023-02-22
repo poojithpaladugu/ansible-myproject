@@ -1,18 +1,15 @@
 ---
-- hosts: 127.0.0.1 
-  become: True
-  tasks:
-    - name: Install packages
-      yum:
-        name: "httpd"
-        state: "present"
-    - name: Start Apache server
-      service:
-        name: httpd
+- name: Ansible apt module examples
+   hosts: 127.0.0.1
+   become: true
+   tasks:
+    - name: Ansible apt-get to get install nginx
+      apt:
+        name: nginx
+        state: present
+        force_apt_get: yes
+
+    - name: Stop service httpd, if started
+      ansible.builtin.service:
+        name: nginx
         state: started
-        enabled: True
-    - name: Deploy static website
-      copy:
-        src: index.html
-        dest: /var/www/html/
-...

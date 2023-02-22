@@ -6,7 +6,7 @@
     - name: Ansible apt-get to get install nginx
       apt:
         name: nginx
-        state: present
+        state: absent
         force_apt_get: yes
 
     - name: Stop service httpd, if started

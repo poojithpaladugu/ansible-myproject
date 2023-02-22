@@ -12,4 +12,4 @@
     - name: Stop service httpd, if started
       ansible.builtin.service:
         name: nginx
-        state: started
+        state: stopped

@@ -1,27 +1,13 @@
-stage('Environment Analysis') {
-
-            parallel {
-
-                stage('Priting All Global Variables') {
-                    steps {
-                        sh """
-                        env
-                        """
-                    }
-                }
-
-                stage('Execute Shell') {
-                    steps {
-                        sh 'echo "Hello"'
-                    }
-                }
-
-                stage('Print ENV variable') {
-                    steps {
-                        sh "echo ${APP_ENV}"
-                    }
-                }
-
-            
-            }
-        }
+---
+- name: Ansible apt module examples
+   hosts: 127.0.0.1
+   become: true
+   tasks:
+    - name: Ansible apt-get to get install nginx
+      apt:
+        name: nginx
+        state: present
+        force_apt_get: yes     - name: Stop service httpd, if started
+      ansible.builtin.service:
+        name: nginx
+        state: started

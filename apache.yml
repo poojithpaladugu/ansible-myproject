@@ -1,13 +1,69 @@
----
-- name: Ansible apt module examples
-   hosts: 127.0.0.1
-   become: true
-   tasks:
-    - name: Ansible apt-get to get install nginx
-      apt:
-        name: nginx
-        state: present
-        force_apt_get: yes     - name: Stop service httpd, if started
-      ansible.builtin.service:
-        name: nginx
-        state: started
+{
+    "name": "win",
+    "id": "/subscriptions/08095a91-1de4-48d0-b79c-7a355f4852ea/resourceGroups/Poojith/providers/Microsoft.Compute/virtualMachines/win",
+    "type": "Microsoft.Compute/virtualMachines",
+    "location": "switzerlandnorth",
+    "properties": {
+        "vmId": "4c054979-6174-44eb-9072-d633ff565864",
+        "hardwareProfile": {
+            "vmSize": "Standard_D2s_v3"
+        },
+        "storageProfile": {
+            "imageReference": {
+                "publisher": "MicrosoftWindowsServer",
+                "offer": "WindowsServer",
+                "sku": "2022-datacenter-azure-edition",
+                "version": "latest",
+                "exactVersion": "20348.1547.230207"
+            },
+            "osDisk": {
+                "osType": "Windows",
+                "name": "win_OsDisk_1_eb989293886c41d0ab20f4b484a738be",
+                "createOption": "FromImage",
+                "caching": "ReadWrite",
+                "managedDisk": {
+                    "storageAccountType": "Standard_LRS",
+                    "id": "/subscriptions/08095a91-1de4-48d0-b79c-7a355f4852ea/resourceGroups/Poojith/providers/Microsoft.Compute/disks/win_OsDisk_1_eb989293886c41d0ab20f4b484a738be"
+                },
+                "deleteOption": "Delete",
+                "diskSizeGB": 127
+            },
+            "dataDisks": []
+        },
+        "osProfile": {
+            "computerName": "win",
+            "adminUsername": "poojith",
+            "windowsConfiguration": {
+                "provisionVMAgent": true,
+                "enableAutomaticUpdates": true,
+                "patchSettings": {
+                    "patchMode": "AutomaticByOS",
+                    "assessmentMode": "ImageDefault",
+                    "enableHotpatching": false
+                }
+            },
+            "secrets": [],
+            "allowExtensionOperations": true,
+            "requireGuestProvisionSignal": true
+        },
+        "networkProfile": {
+            "networkInterfaces": [
+                {
+                    "id": "/subscriptions/08095a91-1de4-48d0-b79c-7a355f4852ea/resourceGroups/Poojith/providers/Microsoft.Network/networkInterfaces/win188_z1",
+                    "properties": {
+                        "deleteOption": "Detach"
+                    }
+                }
+            ]
+        },
+        "diagnosticsProfile": {
+            "bootDiagnostics": {
+                "enabled": true
+            }
+        },
+        "provisioningState": "Succeeded"
+    },
+    "zones": [
+        "1"
+    ]
+}
